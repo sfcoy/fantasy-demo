@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>fantasy</artifactId>
+        <groupId>au.com.demox</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>fantasy-app</artifactId>
+    <packaging>ear</packaging>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>au.com.demox</groupId>
+            <artifactId>fantasy-web</artifactId>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>au.com.demox</groupId>
+            <artifactId>fantasy-ejb</artifactId>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${version.ear.plugin}</version>
+                <configuration>
+                    <version>7</version>
+                    <fileNameMapping>no-version</fileNameMapping>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

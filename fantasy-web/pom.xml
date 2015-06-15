@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <artifactId>fantasy</artifactId>
+      <groupId>au.com.demox</groupId>
+      <version>1.0-SNAPSHOT</version>
+   </parent>
+
+   <artifactId>fantasy-web</artifactId>
+   <packaging>war</packaging>
+
+   <dependencies>
+
+      <dependency>
+         <groupId>au.com.demox</groupId>
+         <artifactId>fantasy-ejb</artifactId>
+         <type>ejb</type>
+         <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>javax.enterprise</groupId>
+         <artifactId>cdi-api</artifactId>
+         <scope>provided</scope>
+      </dependency>
+      
+      <dependency>
+         <groupId>org.jboss.spec.javax.faces</groupId>
+         <artifactId>jboss-jsf-api_2.2_spec</artifactId>
+         <scope>provided</scope>
+      </dependency>
+
+       <dependency>
+           <groupId>org.hibernate.javax.persistence</groupId>
+           <artifactId>hibernate-jpa-2.1-api</artifactId>
+           <scope>provided</scope>
+       </dependency>
+
+   </dependencies>
+
+   <build>
+      <finalName>${project.artifactId}</finalName>
+      <plugins>
+         <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>${version.war.plugin}</version>
+            <configuration>
+               <!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
+               <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>
